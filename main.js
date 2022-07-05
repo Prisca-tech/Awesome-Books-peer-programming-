@@ -1,7 +1,7 @@
-function Book(author, title) {
-  this.author = author;
-  this.title = title;
-}
+function Book (author, title) {
+    this.author = author;
+    this.title = title;
+  }
 
 // ui class:handle the ui
 class UI {
@@ -31,7 +31,7 @@ document.querySelector('#form-Book').addEventListener('submit',
     e.preventDefault();
     // get form values
     const author = document.getElementById('authorname').value;
-    const title = document.getElementById('bookname').value;
+    const title = document.getElementById('titlename').value;
     // instatiate book
     const book = new Book(author, title);
     // adding book to ui
@@ -43,5 +43,34 @@ document.querySelector('#tablebody').addEventListener('click', (e) => {
   UI.deleteBook(e.target);
 });
 
-// get values from local storage
-// localStorage = ('savedBooks', JSON.stringify(addBookToList));
+ // get values from local storage
+ const author = document.getElementById('authorname').value;
+ const title = document.getElementById('titlename').value;
+ 
+ const saveDetails = () => {
+   const setDetails = {
+     authorName: authorName.value,
+     titleName: titleName.value,
+   };
+ 
+   localStorage.setItem('storeDetails', JSON.stringify(setDetails));
+ };
+ const getStoredDetails = () => {
+   const getDetails = JSON.parse(localStorage.getItem('storeDetails'));
+   authorName.value = getDetails.authorName;
+   titleName.value = getDetails.titleName;
+ };
+ 
+ if (!localStorage.getItem('savedData')) {
+   const savedData = {
+     authorName: '',
+     titleName: '',
+     
+   };
+   localStorage.setItem('savedData', JSON.stringify(savedData));
+ } else {
+   getStoredDetails();
+ }
+ 
+ form.addEventListener('change', saveDetails);
+
