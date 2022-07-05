@@ -1,8 +1,7 @@
-function Book 
-(author, title) {
-    this.author = author;
-    this.title = title;
-  }
+function Book(author, title) {
+  this.author = author;
+  this.title = title;
+}
 
 // ui class:handle the ui
 class UI {
@@ -28,7 +27,7 @@ class UI {
 // add book event
 document.querySelector('#form-Book').addEventListener('submit',
   (e) => {
-    // pervent actual submit
+    // prevent actual submit
     e.preventDefault();
     // get form values
     const author = document.getElementById('authorname').value;
@@ -43,13 +42,6 @@ document.querySelector('#form-Book').addEventListener('submit',
 document.querySelector('#tablebody').addEventListener('click', (e) => {
   UI.deleteBook(e.target);
 });
-const authorName = document.getElementById('authorname');
-const titleName = document.getElementById('bookname');
-// Adding listner for event handling
-// // form.addEventListener('input', () => {
-//   localStorage.setItem('Author', `${authorName.value}`);
-//   localStorage.setItem('Title', `${titleName.value}`);
-// });
-// // get values from local storage
-authorName.value = localStorage.getItem('Author');
-titleName.value = localStorage.getItem('Title');
+
+// get values from local storage
+// localStorage = ('savedBooks', JSON.stringify(addBookToList));
