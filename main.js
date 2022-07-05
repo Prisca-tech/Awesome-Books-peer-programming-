@@ -60,7 +60,7 @@ document.querySelector('#tablebody').addEventListener('click', (e) => {
    authorName.value = getDetails.authorName;
    titleName.value = getDetails.titleName;
  };
- 
+//  save values to local storage
  if (!localStorage.getItem('savedData')) {
    const savedData = {
      authorName: '',
