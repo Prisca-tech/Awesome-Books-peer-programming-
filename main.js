@@ -43,35 +43,6 @@ document.querySelector('#tablebody').addEventListener('click', (e) => {
 });
 
 // get values from local storage
-// const author = document.getElementById('authorname').value;
-// const title = document.getElementById('titlename').value;
-
-// const saveDetails = () => {
-//   const setDetails = {
-//     authorname: author.value,
-//     titlename: title.value,
-//   };
-
-//   localStorage.setItem('storeDetails', JSON.stringify(setDetails));
-// };
-// const getStoredDetails = () => {
-//   const getDetails = JSON.parse(localStorage.getItem('storeDetails'));
-//   author.value = getDetails.authorname;
-//   title.value = getDetails.titlename;
-// };
-// //  save values to local storage
-// if (!localStorage.getItem('savedData')) {
-//   const savedData = {
-//     authorname: ''${auhtor.value},
-//     titlename: '',
-
-//   };
-//   localStorage.setItem('savedData', JSON.stringify(savedData));
-// } else {
-//   getStoredDetails();
-// }
-// const form = document.forms[0];
-// form.addEventListener('change', saveDetails);
 
 function getFormData() {
   const formData = {
@@ -97,7 +68,6 @@ document.getElementById('titlename').addEventListener('change', () => {
 
 function loadLocalStorageData() {
   if (localStorage.getItem('formData') !== null) {
-    // console.log('Content exists');
     const retrieveFormData = localStorage.getItem('formData');
     const retrieveJsonData = JSON.parse(retrieveFormData);
     document.getElementById('authorname').value = retrieveJsonData.Author;
@@ -107,5 +77,4 @@ function loadLocalStorageData() {
 
 window.onload = () => {
   loadLocalStorageData();
-  // console.log('The DOM it's uploaded');
 };
