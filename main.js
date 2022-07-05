@@ -4,6 +4,11 @@ function Book(author, title) {
 }
 // ui class:handle the ui
 class UI {
+  static displayBooks(){
+    const books =store.getBooks();
+    books.forEach((book) =>UI.addBookToList(book));
+  }
+
   static addBookToList(book) {
     const list = document.querySelector('#tablebody');
     const row = document.createElement('tr');
@@ -21,6 +26,20 @@ class UI {
       el.parentElement.parentElement.remove();
     }
   }
+  static getBooks(){
+if(localStorage.getItem('formData') == null){
+  formData =[];
+
+  }else{
+    formData =JSON.parse(localStorage.getItem('formData'));
+  }
+  return formData;
+}
+static addBook(book) {
+  const books =store.getBooks();
+  books.push(book);
+  localStorage.setItem('formData',JSON.stringify(book));
+}
 }
 
 // add book event
@@ -35,6 +54,8 @@ document.querySelector('#form-Book').addEventListener('submit',
     const book = new Book(author, title);
     // adding book to ui
     UI.addBookToList(book);
+    // adding book to store
+  store.addBook(book);
   });
 
 // remove event
