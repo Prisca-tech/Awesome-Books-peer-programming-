@@ -1,15 +1,13 @@
-
-function Book (author, title) {
-    this.author = author;
-    this.title = title;
-  }
-  // ui class:handle the ui
-  class UI{
-    
-    static addBookToList(book){
-        const list = document.querySelector('#tablebody');
-        const row =document.createElement('tr');
-        row.innerHTML =`
+function Book(author, title) {
+  this.author = author;
+  this.title = title;
+}
+// ui class:handle the ui
+class UI {
+  static addBookToList(book) {
+    const list = document.querySelector('#tablebody');
+    const row = document.createElement('tr');
+    row.innerHTML = `
         <td>${book.author}</td>
         <td>${book.title}</td>
         <td><input type="button" value="remove" class="delete" ></td>
@@ -44,35 +42,70 @@ document.querySelector('#tablebody').addEventListener('click', (e) => {
   UI.deleteBook(e.target);
 });
 
- // get values from local storage
- const author = document.getElementById('authorname').value;
- const title = document.getElementById('titlename').value;
- 
- const saveDetails = () => {
-   const setDetails = {
-     authorName: authorName.value,
-     titleName: titleName.value,
-   };
- 
-   localStorage.setItem('storeDetails', JSON.stringify(setDetails));
- };
- const getStoredDetails = () => {
-   const getDetails = JSON.parse(localStorage.getItem('storeDetails'));
-   authorName.value = getDetails.authorName;
-   titleName.value = getDetails.titleName;
- };
-//  save values to local storage
- if (!localStorage.getItem('savedData')) {
-   const savedData = {
-     authorName: '',
-     titleName: '',
-     
-   };
-   localStorage.setItem('savedData', JSON.stringify(savedData));
- } else {
-   getStoredDetails();
- }
- 
- form.addEventListener('change', saveDetails);
+// get values from local storage
+// const author = document.getElementById('authorname').value;
+// const title = document.getElementById('titlename').value;
 
-      
+// const saveDetails = () => {
+//   const setDetails = {
+//     authorname: author.value,
+//     titlename: title.value,
+//   };
+
+//   localStorage.setItem('storeDetails', JSON.stringify(setDetails));
+// };
+// const getStoredDetails = () => {
+//   const getDetails = JSON.parse(localStorage.getItem('storeDetails'));
+//   author.value = getDetails.authorname;
+//   title.value = getDetails.titlename;
+// };
+// //  save values to local storage
+// if (!localStorage.getItem('savedData')) {
+//   const savedData = {
+//     authorname: ''${auhtor.value},
+//     titlename: '',
+
+//   };
+//   localStorage.setItem('savedData', JSON.stringify(savedData));
+// } else {
+//   getStoredDetails();
+// }
+// const form = document.forms[0];
+// form.addEventListener('change', saveDetails);
+
+function getFormData() {
+  const formData = {
+    Author: document.getElementById('authorname').value,
+    Title: document.getElementById('titlename').value,
+  };
+
+  // // Put the object into storage
+  localStorage.setItem('formData', JSON.stringify(formData));
+
+  // // Retrieve the object from storage
+  const retrieveFormData = localStorage.getItem('formData');
+  // eslint-disable-next-line no-console
+  console.log(JSON.parse(retrieveFormData));
+}
+
+document.getElementById('authorname').addEventListener('change', () => {
+  getFormData();
+});
+document.getElementById('titlename').addEventListener('change', () => {
+  getFormData();
+});
+
+function loadLocalStorageData() {
+  if (localStorage.getItem('formData') !== null) {
+    // console.log('Content exists');
+    const retrieveFormData = localStorage.getItem('formData');
+    const retrieveJsonData = JSON.parse(retrieveFormData);
+    document.getElementById('authorname').value = retrieveJsonData.Author;
+    document.getElementById('titlename').value = retrieveJsonData.Title;
+  }
+}
+
+window.onload = () => {
+  loadLocalStorageData();
+  // console.log('The DOM it's uploaded');
+};
