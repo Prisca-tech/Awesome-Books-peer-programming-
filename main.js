@@ -1,14 +1,15 @@
+
 function Book(author, title) {
   this.author = author;
   this.title = title;
 }
-
-// ui class:handle the ui
-class UI {
-  static addBookToList(book) {
-    const list = document.querySelector('#tablebody');
-    const row = document.createElement('tr');
-    row.innerHTML = `
+  // ui class:handle the ui
+  class UI{
+    
+    static addBookToList(book){
+        const list = document.querySelector('#tablebody');
+        const row =document.createElement('tr');
+        row.innerHTML =`
         <td>${book.author}</td>
         <td>${book.title}</td>
         <td><input type="button" value="remove" class="delete" ></td>
@@ -45,3 +46,5 @@ document.querySelector('#tablebody').addEventListener('click', (e) => {
 
 // get values from local storage
 // localStorage = ('savedBooks', JSON.stringify(addBookToList));
+
+      
