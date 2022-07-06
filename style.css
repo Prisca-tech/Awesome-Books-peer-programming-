@@ -91,17 +91,17 @@ input[type=text] {
 }
 
 @media screen and (max-width: 768px) {
-.mobile {
-  display: block;
-  font-size: 25px;
-  font-family: 'Open Sans', sans-serif;
-  font-style: italic;
-  line-height: 24px;
-  color: rgb(6, 7, 6);
-  padding: 30px;
-}
+  .mobile {
+    display: block;
+    font-size: 25px;
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
+    line-height: 24px;
+    color: rgb(6, 7, 6);
+    padding: 30px;
+  }
 
-.desktop {
-  display: none;
- }
+  .desktop {
+    display: none;
+  }
 }
