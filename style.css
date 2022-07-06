@@ -1,5 +1,107 @@
+
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+  width: 90%;
+  margin: auto;
+  background-color: rgba(233, 220, 220, 0.16);
+  height: 100vh;
+  gap: 10px;
+}
+
+.desktop {
+  font-size: 64px;
+  font-family: 'Open Sans', sans-serif;
+  font-style: italic;
+  line-height: 24px;
+  color: rgb(6, 7, 6);
+  padding: 30px;
+}
+
+.form-book {
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  padding: 15px;
+  padding-left: 20px;
+  font-size: 20px;
+  background-color: rgba(5, 6, 6, 0.6);
+  color: #fff;
+}
+
+th {
+  color: rgb(209, 55, 55);
+}
+
+th,
+td {
+  width: 150px;
+  text-align: center;
+  padding: 5px;
+}
+
+td {
+  font-size: 20px;
+}
+
+thead {
+  font-family: 'Open Sans', sans-serif;
+  font-style: italic;
+  font-size: 35px;
+  text-align: center;
+}
+
+input[type=text] {
+  padding: 7px;
+  width: 100%;
+  font-size: 18px;
+}
+
+.delete {
+  margin-left: 47%;
+  padding: 3px 10px;
+  border: 2px solid rgb(8, 8, 8);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
+  font-weight: 900;
+  height: 30px;
+  border-radius: 5px;
+  margin-top: auto;
+}
+
+#addbutton {
+  margin-left: 40%;
+  padding: 5px 20px;
+  border: 1px solid rgb(8, 8, 8);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
+  font-weight: 700;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.mobile {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .mobile {
+    display: block;
+    font-size: 25px;
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
+    line-height: 24px;
+    color: rgb(6, 7, 6);
+    padding: 30px;
+  }
+
+  .desktop {
+    display: none;
+  }
 }

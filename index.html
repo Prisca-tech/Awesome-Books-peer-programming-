@@ -8,7 +8,8 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>Awesome book Library</h2>
+    <h1 class="desktop">Awesome Book Library</h1>
+    <h1 class="mobile">Awesome Book Library</h1>
     <table>
         <thead>
             <tr>
@@ -22,12 +23,18 @@
            
         </tbody>
     </table>
-    <form  id="form-Book">
-        <input type="text" name="Author" id="authorname" placeholder="Author"><br><br>
-        <input type="text" name="Title" id="titlename" placeholder="Title"><br><br>
+    <form  id="form-Book" class="form-book">
+        <label for="author">Author</label>
+        <input type="text" name="Author" id="authorname" placeholder="Author">
+        <br><br>
+        <label for="title">Title</label>
+        <input type="text" name="Title" id="titlename" placeholder="Title">
+        <br><br>
        
         <input type="submit" value="Add" id="addbutton" >
     </form>
     <script  src="main.js"></script>
 </body>
 </html>
+
+   
