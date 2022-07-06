@@ -2,10 +2,11 @@ function Book(author, title) {
   this.author = author;
   this.title = title;
 }
+
 // ui class:handle the ui
 class UI {
   static displayBooks() {
-    const books = store.getBooks();
+    const books = UI.getBooks();
     books.forEach((book) => UI.addBookToList(book));
   }
 
@@ -27,19 +28,21 @@ class UI {
     }
   }
 
+  // local storage
   static getBooks() {
-    if (localStorage.getItem('formData') == null) {
-      formData = [];
+    let books;
+    if (localStorage.getItem('books') == null) {
+      books = [];
     } else {
-      formData = JSON.parse(localStorage.getItem('formData'));
+      books = JSON.parse(localStorage.getItem('books'));
     }
-    return formData;
+    return books;
   }
 
   static addBook(book) {
-    const books = store.getBooks();
+    const books = UI.getBooks();
     books.push(book);
-    localStorage.setItem('formData', JSON.stringify(book));
+    localStorage.setItem('books', JSON.stringify(books));
   }
 }
 
@@ -56,47 +59,11 @@ document.querySelector('#form-Book').addEventListener('submit',
     // adding book to ui
     UI.addBookToList(book);
     // adding book to store
-    store.addBook(book);
+    UI.addBook(book);
   });
 
-// remove event
+// adding remove event
 document.querySelector('#tablebody').addEventListener('click', (e) => {
   UI.deleteBook(e.target);
 });
-
-// get values from local storage
-
-function getFormData() {
-  const formData = {
-    Author: document.getElementById('authorname').value,
-    Title: document.getElementById('titlename').value,
-  };
-
-  // // Put the object into storage
-  localStorage.setItem('formData', JSON.stringify(formData));
-
-  // // Retrieve the object from storage
-  const retrieveFormData = localStorage.getItem('formData');
-  // eslint-disable-next-line no-console
-  console.log(JSON.parse(retrieveFormData));
-}
-
-document.getElementById('authorname').addEventListener('change', () => {
-  getFormData();
-});
-document.getElementById('titlename').addEventListener('change', () => {
-  getFormData();
-});
-
-function loadLocalStorageData() {
-  if (localStorage.getItem('formData') !== null) {
-    const retrieveFormData = localStorage.getItem('formData');
-    const retrieveJsonData = JSON.parse(retrieveFormData);
-    document.getElementById('authorname').value = retrieveJsonData.Author;
-    document.getElementById('titlename').value = retrieveJsonData.Title;
-  }
-}
-
-window.onload = () => {
-  loadLocalStorageData();
-};
+document.addEventListener('DOMContentLoaded', UI.displayBooks);

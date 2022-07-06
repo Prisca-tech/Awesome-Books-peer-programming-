@@ -84,22 +84,23 @@ input[type=text] {
   border-radius: 5px;
   font-size: 18px;
 }
- .mobile {
-display: none;
+
+.mobile {
+  display: none;
 }
 
 @media screen and (max-width: 768px) {
-.mobile {
-display: block;
-  font-size: 25px;
-  font-family: 'Open Sans', sans-serif;
-  font-style: italic;
-  line-height: 24px;
-  color: rgb(6, 7, 6);
-  padding: 30px;
-}
+  .mobile {
+    display: block;
+    font-size: 25px;
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
+    line-height: 24px;
+    color: rgb(6, 7, 6);
+    padding: 30px;
+  }
 
-.desktop {
-display: none;
-}
+  .desktop {
+    display: none;
+  }
 }
