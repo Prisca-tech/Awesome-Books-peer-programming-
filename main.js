@@ -44,6 +44,7 @@ class UI {
     books.push(book);
     localStorage.setItem('books', JSON.stringify(books));
   }
+
   static removeBook(book) {
     const books = UI.getBooks();
     books.splice(books.indexOf(book), 1);
