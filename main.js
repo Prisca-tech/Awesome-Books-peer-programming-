@@ -4,9 +4,9 @@ function Book(author, title) {
 }
 // ui class:handle the ui
 class UI {
-  static displayBooks(){
-    const books =store.getBooks();
-    books.forEach((book) =>UI.addBookToList(book));
+  static displayBooks() {
+    const books = store.getBooks();
+    books.forEach((book) => UI.addBookToList(book));
   }
 
   static addBookToList(book) {
@@ -26,20 +26,21 @@ class UI {
       el.parentElement.parentElement.remove();
     }
   }
-  static getBooks(){
-if(localStorage.getItem('formData') == null){
-  formData =[];
 
-  }else{
-    formData =JSON.parse(localStorage.getItem('formData'));
+  static getBooks() {
+    if (localStorage.getItem('formData') == null) {
+      formData = [];
+    } else {
+      formData = JSON.parse(localStorage.getItem('formData'));
+    }
+    return formData;
   }
-  return formData;
-}
-static addBook(book) {
-  const books =store.getBooks();
-  books.push(book);
-  localStorage.setItem('formData',JSON.stringify(book));
-}
+
+  static addBook(book) {
+    const books = store.getBooks();
+    books.push(book);
+    localStorage.setItem('formData', JSON.stringify(book));
+  }
 }
 
 // add book event
@@ -55,7 +56,7 @@ document.querySelector('#form-Book').addEventListener('submit',
     // adding book to ui
     UI.addBookToList(book);
     // adding book to store
-  store.addBook(book);
+    store.addBook(book);
   });
 
 // remove event
