@@ -3,7 +3,7 @@ function Book(author, title) {
   this.title = title;
 }
 
-// ui class:handle the ui
+// ui class:handle the ui interface
 class UI {
   static displayBooks() {
     const books = UI.getBooks();
