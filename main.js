@@ -44,6 +44,11 @@ class UI {
     books.push(book);
     localStorage.setItem('books', JSON.stringify(books));
   }
+  static removeBook(book) {
+    const books = UI.getBooks();
+    books.splice(books.indexOf(book), 1);
+    localStorage.setItem('books', JSON.stringify(books));
+  }
 }
 
 // add book event
@@ -65,5 +70,6 @@ document.querySelector('#form-Book').addEventListener('submit',
 // remove event
 document.querySelector('#tablebody').addEventListener('click', (e) => {
   UI.deleteBook(e.target);
+  UI.removeBook(e.target);
 });
 document.addEventListener('DOMContentLoaded', UI.displayBooks);
