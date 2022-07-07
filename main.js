@@ -80,23 +80,23 @@ const addNew = document.querySelector('#add-btn');
 const contacts = document.querySelector('#contact-btn');
 const addBook = document.querySelector('#new-book');
 const contactForm = document.querySelector('#contact');
-const  bookSections = document.querySelector('#all-books');
+const bookSections = document.querySelector('#all-books');
 
-// adding events 
+// adding events
 
-list.addEventListener('click',() => {
+list.addEventListener('click', () => {
   addBook.classList.add('inactive');
   contactForm.classList.add('inactive');
   bookSections.classList.remove('inactive');
 });
 
-addNew.addEventListener('click', () =>{
-addBook.classList.remove('inactive');
-bookSections.classList.add('inactive');
-contactForm.classList.add('inactive');
+addNew.addEventListener('click', () => {
+  addBook.classList.remove('inactive');
+  bookSections.classList.add('inactive');
+  contactForm.classList.add('inactive');
 });
 
-contacts.addEventListener('click', () =>{
+contacts.addEventListener('click', () => {
   contactForm.classList.remove('inactive');
   bookSections.classList.add('inactive');
   addBook.classList.add('inactive');
