@@ -79,6 +79,25 @@ nav button {
   text-align: center;
 }
 
+
+#new-book.inactive{
+  display: none;
+}
+#all-books.active{
+  border: 2px solid rgb(88, 92, 88);
+
+}
+#all-books.inactive{
+  border: 2px solid rgb(88, 92, 88);
+display: none;
+}
+#contacts.active{
+  border: 2px solid rgb(88, 92, 88);
+
+}
+#contact.contact.inactive{
+display: none;
+}
 .desktop {
   font-size: 64px;
   font-family: 'Open Sans', sans-serif;
@@ -168,6 +187,9 @@ input[type=text] {
   align-items: center;
   background-color: #818080;
   padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 88%;
 }
 
 .footer-text {
